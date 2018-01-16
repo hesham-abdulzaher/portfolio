@@ -1,0 +1,205 @@
+// My Framework
+body
+  section
+    padding: 40px 0
+
+.flex
+  display: flex
+  flex-wrap: wrap
+
+.z-index
+  z-index: 2
+
+.section-name
+  display: block
+  width: fit-content
+  text-align: center
+  font-size: 30px
+  padding: 10px 180px
+  font-family: $pt-sans
+  text-transform: uppercase
+  letter-spacing: 2px
+  color: $color-4
+  position: relative
+  margin: 0px auto 50px
+  &::before, &::after
+    content: ''
+    position: absolute
+    top: -10%
+    width: 10px
+    height: 120%
+    transform: skewY(20deg) skewX(6deg)
+    background-color: $color-4
+  &::before
+    left: 70%
+  &::after
+    right: 70%
+
+
+// nav
+nav
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  color: $white
+  z-index: 999
+  ul
+    margin: 0
+    padding: 0
+    text-align: right
+    li
+      list-style: none
+      position: relative
+      display: inline-block
+      margin: 0
+      font-family: 'Timmana', sans-serif
+      font-size: 17px
+      transition: all .2s ease
+      overflow: hidden
+      a
+        padding: 20px 20px 12px
+        cursor: pointer
+        display: block
+        text-decoration: none
+        color: $white
+      &:hover
+        color: $color-4
+      &:hover::before
+        transform: skewY(20deg) skewX(6deg) translateY(0px)
+      &:hover::after
+        transform: skewY(20deg) skewX(6deg) translateY(0px)
+      &:last-of-type
+        margin-right: 20px
+      &::after, &::before
+        content: ''
+        position: absolute
+        top: 10%
+        width: 6px
+        height: 80%
+        background-color: $color-4
+        transition: all .2s ease
+      &::after
+        transform: skewY(20deg) skewX(6deg) translateY(-100px)
+        left: 85%
+      &::before
+        transform: skewY(20deg) skewX(6deg) translateY(100px)
+        right: 85%
+.active
+  color: $color-4
+  &::before
+    transform: skewY(20deg) skewX(6deg) translateY(0)
+  &::after
+    transform: skewY(20deg) skewX(6deg) translateY(0)
+
+
+
+
+.menu-bar
+  display: block
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  background-color: $color-4
+  position: fixed
+  top: 4%
+  left: 5vw
+  z-index: 9
+  transition: all .5s ease
+  box-shadow: $shadow
+  &.toggle-translatex-menu
+    transform: translateX(75vw)
+    .bars
+      .ion-ios-more
+        display: none
+      .ion-close-round
+        display: block
+        font-size: 26px
+  .bars
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    i
+      font-size: 40px
+      color: white
+      &.ion-close-round
+        display: none
+.mob-nav-list
+  display: none
+  box-shadow: $shadow
+  height: 100%
+  width: 75%
+  background-color: $color-4 / 1.5
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 999
+  font-family: $opensans
+  transform: translateX(-120%)
+  transition: all 0.5s ease
+  &.show-list-menu
+    transform: translateX(0)
+  .hesham-mob-nav
+    padding: 20px 0
+    border-bottom: 2px solid $color-4 * 1.4
+    .info
+      color: white
+      width: 80%
+      padding-left: 20px
+      .image-avatar
+        width: 60px
+        height: 60px
+        border-radius: 50%
+        border: 2px solid $color-4 * 1.4
+        background-position: top center
+        background-size: 100%
+        background-repeat: no-repeat
+        margin-bottom: 40px
+      h3
+        margin: 10px 0
+        font-size: 25px
+        font-family: $raleway
+        font-weight: 400
+        letter-spacing: 2px
+      h4
+        color: #f1f1f1
+        margin: 10px 0
+        font-size: 18px
+        font-style: italic
+        font-weight: 400
+        letter-spacing: 1px
+    .social-media
+      margin-top: 30px
+      width: 20%
+      border-left: 2px solid $color-4 * 1.4
+      text-align: center
+      height: fit-content
+      a
+        text-decoration: none
+        color: $color-4 * 1.4
+        margin: 10px 0
+        display: block
+        i
+          font-size: 30px
+          display: block
+  ul
+    margin: 0
+    padding: 0
+    padding: 20px 0
+    li
+      list-style: none
+      // margin: 0 10px
+      a
+        font-size: 18px
+        display: block
+        color: white
+        text-decoration: none
+        padding: 12px 20px
+        i
+          font-size: 18px
+          color: white
+          padding: 8px 20px 8px 20px
+          text-align: left
+          width: 10%
+          text-align: center
