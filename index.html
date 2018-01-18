@@ -324,20 +324,20 @@
   <!-- Contact -->
   <section id="contact">
     <div class="section-name">Contact Me</div>
-    <form>
-      <input class="name"type="text" placeholder="Name">
-      <input class="phone"type="text" placeholder="Phone">
-      <input class="email"type="text" placeholder="E-mail">
-      <textarea rows="6" cols="70" placeholder="Comment"></textarea>
-      <button>Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-      <div class="contact-loading">
+    <div class="form">
+      <input class="name" type="text" placeholder="Name" id="n">
+      <input class="phone" type="text" placeholder="Phone" id="p">
+      <input class="email" type="text" placeholder="E-mail" id="e">
+      <textarea rows="6" cols="70" placeholder="Comment" id="m"></textarea>
+      <button id="mybtn" onclick="submitForm()">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      <div class="contact-loading" id="sending">
         <div>Sending</div>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <div class="sended">Sended<i class="ion-checkmark-round"></i></div>
-    </form>
+      <div class="sended" id="sent">Sent<i class="ion-checkmark-round"></i></div>
+    </div>
     <!-- Copyright -->
     <div class="copyright">
       <span><a href="https://www.facebook.com/hesham.abdulzaher">Hesham</a>&copy; 2018</span>

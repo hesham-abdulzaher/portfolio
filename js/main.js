@@ -161,3 +161,54 @@ $(window).scroll(function(){
         .end().filter(`[href="#${id}"]`).parent().addClass("active");
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Sending new Message from Contact Form
+function _(id){ return document.getElementById(id); }
+function submitForm(){
+  _("mybtn").disabled = true;
+  _("sending").style.display = 'block';
+
+  var formdata = new FormData();
+  formdata.append( "n", _("n").value );
+  formdata.append( "p", _("p").value );
+  formdata.append( "e", _("e").value );
+  formdata.append( "m", _("m").value );
+  var ajax = new XMLHttpRequest();
+  ajax.open( "POST", "mail.php" );
+  ajax.onreadystatechange = function() {
+    if(ajax.readyState == 4 && ajax.status == 200) {
+      if(ajax.responseText == "success"){
+        _("sending").style.display = 'none';
+        _("sent").sytle.display = 'block';
+      } else {
+        console.log(ajax.responseText)
+        _("sending").style.display = 'none';
+        _("sent").style.display = 'block';
+        _("sent").innerHTML = ajax.responseText;
+        _("mybtn").disabled = false;
+      }
+    }
+  }
+  ajax.send( formdata );
+}

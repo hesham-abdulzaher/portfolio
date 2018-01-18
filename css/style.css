@@ -777,25 +777,25 @@ body {
 
 #contact {
   padding-bottom: 0 !important; }
-  #contact form {
+  #contact .form {
     width: 60%;
     margin: 30px auto;
     position: relative;
     text-align: center; }
-    #contact form input {
+    #contact .form input {
       display: inline-block; }
-      #contact form input.name {
+      #contact .form input.name {
         width: 55%;
         margin-right: 20px; }
-      #contact form input.phone {
+      #contact .form input.phone {
         width: 35%; }
-      #contact form input.email {
+      #contact .form input.email {
         width: calc(90% + 25px); }
-    #contact form textarea {
+    #contact .form textarea {
       width: calc(90% + 25px);
       resize: none;
       margin-bottom: 30px; }
-    #contact form input, #contact form textarea {
+    #contact .form input, #contact .form textarea {
       padding: 15px;
       margin-top: 25px;
       border: 1px solid #ccc;
@@ -804,10 +804,10 @@ body {
       overflow: hidden;
       font-size: 16px;
       font-family: "PT Sans", sans-serif; }
-    #contact form input:focus, #contact form textarea:focus {
+    #contact .form input:focus, #contact .form textarea:focus {
       border: 2px solid #323133;
       outline: none; }
-    #contact form button {
+    #contact .form button {
       padding: 12px 40px;
       font-size: 22px;
       font-family: "PT Sans", sans-serif;
@@ -817,16 +817,16 @@ body {
       background-color: transparent;
       cursor: pointer;
       transition: all 0.2s ease-out; }
-      #contact form button:hover {
+      #contact .form button:hover {
         background-color: #FA3C4C;
         color: #fff;
         box-shadow: 0px 5px 10px #ddd;
         border: 1px solid transparent;
         transform: translateY(-5px);
         padding: 12px 45px; }
-      #contact form button i {
+      #contact .form button i {
         margin-left: 15px; }
-    #contact form .contact-loading, #contact form .sended {
+    #contact .form .contact-loading, #contact .form .sended {
       width: fit-content;
       padding: 10px 20px;
       display: none;
@@ -835,17 +835,17 @@ body {
       right: 10%;
       font-family: "Open Sans", sans-serif;
       font-size: 18px; }
-      #contact form .contact-loading.sended, #contact form .sended.sended {
+      #contact .form .contact-loading.sended, #contact .form .sended.sended {
         color: #999; }
-        #contact form .contact-loading.sended i, #contact form .sended.sended i {
+        #contact .form .contact-loading.sended i, #contact .form .sended.sended i {
           color: green;
           margin-left: 10px;
           font-size: 25px; }
-      #contact form .contact-loading div, #contact form .sended div {
+      #contact .form .contact-loading div, #contact .form .sended div {
         margin: 0 10px 0 20px;
         display: inline-block;
         color: #999; }
-      #contact form .contact-loading span, #contact form .sended span {
+      #contact .form .contact-loading span, #contact .form .sended span {
         width: 8px;
         height: 8px;
         border-radius: 3px;
@@ -854,9 +854,9 @@ body {
         margin-left: 3px;
         transform: scale(0);
         animation: sending 0.8s ease-in-out forwards infinite; }
-        #contact form .contact-loading span:nth-of-type(2), #contact form .sended span:nth-of-type(2) {
+        #contact .form .contact-loading span:nth-of-type(2), #contact .form .sended span:nth-of-type(2) {
           animation-delay: 0.1s; }
-        #contact form .contact-loading span:last-of-type, #contact form .sended span:last-of-type {
+        #contact .form .contact-loading span:last-of-type, #contact .form .sended span:last-of-type {
           animation-delay: 0.2s; }
 @keyframes sending {
   0%, 100% {
