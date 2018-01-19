@@ -13,33 +13,7 @@ body
 .mob-nav-list
   display: none
 
-// Loading
-#loading
-  position: fixed
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
-  background-color: white
-  z-index: 99999
-  display: flex
-  .circle
-    width: 80px
-    height: 80px
-    border-radius: 50%
-    border-top: 7px solid $color-4
-    border-bottom: 7px solid transparent
-    border-left: 7px solid transparent
-    border-right: 7px solid transparent
-    margin: auto
-    transform: translate(50%, 50%)
-    animation: loading .6s linear infinite
 
-    @keyframes loading
-      0%
-        transform: rotate(0deg)
-      100%
-        transform: rotate(360deg)
 
 // Home
 #home
@@ -318,21 +292,17 @@ body
             border-right: 5px solid transparent
             border-top: 10px solid $black * 1.2
           // End Skills Progress
-  #animate
-    // border: 1px solid #000
-    width: 650px
-    height: 450px
-    margin: 20px auto
-    img
-      width: calc(100% - 20%)
-      height: calc(100% - 20%)
-
-@keyframes hesham
-  from
-    stroke-dashoffset: 1000
-  to
-    stroke-dashoffset: 0
-
+  p
+    text-align: center
+    font-size: 20px
+    font-family: $raleway
+    i
+      color: $color-4
+      font-size: 25px
+      margin-right: 10px
+    span
+      color: $color-4
+      font-size: 25px
 
 // End Skills
 #services
@@ -396,6 +366,10 @@ body
     font-family: $raleway
     position: relative
     cursor: pointer
+    &:hover
+      .project-description
+        &::after
+          left: 100%
     &.two, &.four
       margin: 20px 25%
       // Card number one
@@ -560,6 +534,7 @@ body
         top: 50%
         transform: translateY(-50%)
         left: 103%
+        transition: all ease 0.4s
       p
         transform: skewX(-40deg)
         margin: 0
@@ -572,7 +547,7 @@ body
         a
           color: $pro-4
           margin: 20px
-        // text-decoration: none
+
   // slider section
   .slidersectionbaba
     position: fixed

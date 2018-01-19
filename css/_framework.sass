@@ -36,7 +36,7 @@ body
     right: 70%
 
 
-// nav
+// nav pc
 nav
   position: fixed
   top: 0
@@ -94,7 +94,7 @@ nav
 
 
 
-
+// nav mob
 .menu-bar
   display: block
   width: 50px
@@ -153,7 +153,7 @@ nav
         border-radius: 50%
         border: 2px solid $color-4 * 1.4
         background-position: top center
-        background-size: 100%
+        background-size: 110%
         background-repeat: no-repeat
         margin-bottom: 40px
       h3
@@ -189,7 +189,6 @@ nav
     padding: 20px 0
     li
       list-style: none
-      // margin: 0 10px
       a
         font-size: 18px
         display: block
@@ -203,3 +202,61 @@ nav
           text-align: left
           width: 10%
           text-align: center
+
+
+// Loading
+#loading
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  height: 100vh
+  background-color: white
+  z-index: 99999
+  // background-color: rgba(22, 160, 133,1.0)
+  overflow: hidden
+  .spinner
+    width: 50px
+    height: 50px
+    position: relative
+    margin: auto
+    display: block
+    .double-bounce1, .double-bounce2
+      width: 100%
+      height: 100%
+      border-radius: 50%
+      background-color: $color-3
+      opacity: 0.6
+      position: absolute
+      top: 0
+      left: 0
+      animation: sk-bounce 2.0s infinite ease-in-out
+      &.double-bounce2
+        animation-delay: -1.0s
+  .wait
+    position: fixed
+    bottom: 5%
+    left: 5%
+    width: fit-content
+    font-family: $raleway
+    span
+      width: 8px
+      height: 8px
+      border-radius: 50%
+      background-color: $color-3
+      display: inline-block
+      animation: sk-bounce 0.6s infinite ease-in-out
+      &:first-of-type
+        margin-left: 10px
+      &:nth-of-type(2)
+        animation-delay: 0.1s
+      &:last-of-type
+        animation-delay: 0.2s
+
+
+@keyframes sk-bounce
+  0%, 100%
+    transform: scale(0.0)
+  50%
+    transform: scale(1.0)
