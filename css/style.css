@@ -8,6 +8,11 @@ body section {
 .z-index {
   z-index: 2; }
 
+.g-recaptcha > div{
+  margin: auto;
+  margin-bottom: 20px;
+}
+
 .section-name {
   display: block;
   width: fit-content;
