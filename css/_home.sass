@@ -13,8 +13,6 @@ body
 .mob-nav-list
   display: none
 
-
-
 // Home
 #home
   font-family: 'Timmana', sans-serif
@@ -25,11 +23,6 @@ body
   background-color: #f7f7f7
   color: $white
   position: relative
-  // background-image: url('./../images/43.jpg')
-  // background-position: center
-  // background-repeat: no-repeat
-  // background-size: cover
-  // background-attachment: fixed
   position: relative
   overflow: hidden
   .video
@@ -38,6 +31,7 @@ body
     left: 0
     width: 100vw
     height: 100vh
+    // display: none
     video
       position: absolute
       top: 50%
@@ -47,14 +41,27 @@ body
       min-height: 100%
       z-index: 1
       filter: blur(7px) grayscale(100%)
+  .bg-phone
+    position: absolute
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    z-index: 2
+    background-image: url('../images/avatar1.jpg')
+    background-position: center
+    background-size: cover
+    background-repeat: no-repeat
+    background-attachment: fixed
+    display: none
   .content
+    // display: none
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
     width: 600px
     height: 600px
-    // border: 5px solid white
     z-index: 3
     // display: none
     .avatar
@@ -210,7 +217,7 @@ body
     margin: 60px 0 0
     text-align: center
     position: relative
-    i.ion-quote
+    i.fa-quote-left
       margin: 15px auto
       display: block
       font-size: 22px
@@ -496,6 +503,7 @@ body
     .project-title
       position: relative
       width: fit-content
+      max-width: 60%
       transform: skewX(40deg)
       background-color: $pro-1
       &::after, &::before
@@ -569,8 +577,8 @@ body
       &:hover
         color: black
     .slider
-      width: 80%
-      height: 80%
+      width: 79%
+      height: 75%
       border: 1px solid $black
       box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
       position: absolute
@@ -647,7 +655,7 @@ body
         padding: 12px 45px
       i
         margin-left: 15px
-    .contact-loading, .sended
+    .contact-loading, #sent
       width: fit-content
       padding: 10px 20px
       display: none
@@ -656,7 +664,7 @@ body
       right: 10%
       font-family: $opensans
       font-size: 18px
-      &.sended
+      &#sent
         // display: block
         color: #999
         i
@@ -688,7 +696,6 @@ body
             transform: scale(1)
           80%
             transform: scale(1)
-
   .copyright
     padding: 40px 0
     text-align: center

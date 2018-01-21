@@ -16,12 +16,18 @@
     &::before
       left: 80%
   #home
+    .bg-phone
+      display: block
     .content
+      .avatar
+        opacity: 0
       h1
         font-size: 26px
         text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000
       h2.job-title
+        color: white
         font-size: 28px
+        font-weight: 400
   // End Home
   #about
     .content-about
@@ -118,7 +124,7 @@
             left: auto
   // End projects
   #contact
-    form
+    .form
       width: 90%
       input, textarea
         width: 100% !important
@@ -135,6 +141,18 @@
   .mob-nav-list
     display: block
   #home
+    .bg-phone
+      display: block
+    .content
+      .avatar
+        opacity: 0
+      h1
+        font-size: 30px
+      h2.job-title
+        text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000
+        color: white
+        font-size: 28px
+        font-weight: 400
     i.scroll-down
       margin-top: 120px
   // End Home
@@ -177,5 +195,5 @@
         height: 28%
 
   #contact
-    form
+    .form
       width: 80%

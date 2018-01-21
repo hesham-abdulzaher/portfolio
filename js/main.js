@@ -1,35 +1,89 @@
+// check navBar
+$(window).scroll(function(){
+  var scrollTop = $(window).scrollTop()
+      heightNav = $('nav').outerHeight(true)
+      heightHome = $('#home').outerHeight(true)
+      changeColorNav = heightHome - heightNav
+  if(scrollTop >= changeColorNav ){
+    $('nav').css({'background-color': '#fff', 'border-bottom': '1px solid #ddd'})
+    $('nav ul li a').css('color', '#2E2E34')
+  }else{
+    $('nav').css({'color': '#fff', 'background-color': 'transparent', 'border': 'none'})
+    $('nav ul li a').css('color', '#fff')
+  }
+})
+// menu bar => nav in mob
+$('.menu-bar').click(function(){
+  $(this).toggleClass('toggle-translatex')
+  $('.mob-nav-list').toggleClass('show-list-menu')
+})
+
+
+////////////////////// Chech HOME section
 $(document).ready(function(){
   $('#loading').fadeOut()
-  var heightNav = $('nav').outerHeight(true)
-  // Skills Bars
-  $('.sk-bar').each(function(){
-    var data = $(this).data('sk-val')
-    $(this).find('.bar').css('width', `0%`)
-    $(this).find('.sk-count').text('0%')
-    $(this).find('.sk-count').css('left', '0%')
-  })
+  // Append Video in HOME section if document width is large screen
+  var documentWidth = $(document).width()
+      video = "<div class='video'><video src='./images/video/Writing on a keyboard.mp4' autoplay loop muted></video></div>"
+  if(documentWidth > 768){
+    $('#home').prepend(video)
+  }
+})
+// TYping form typeit
+new TypeIt('h2.job-title span', {
+     strings: ["Developer", "Designer"],
+     speed: 100,
+     deleteSpeed: 80,
+     loop: true,
+     breakLines: false,
+     nextStringDelay: 2000,
+     startDelay: 2000
+});
+// Scroll Down Button in home section
+$('.scroll-down').click(function(){
+  var scrollTop = $(window).scrollTop()
+      heightHome = $('#home').outerHeight(true)
+  $('html, body').animate({scrollTop: heightHome}, 700)
+})
 
-  // menu bar => nav in mob
-  $('.menu-bar').click(function(){
-    $('.mob-nav-list').toggleClass('show-list-menu')
-    $(this).toggleClass('toggle-translatex-menu')
-  })
+
+////////////////////// Chech SKILLS section
+// Skills Bars
+$('.sk-bar').each(function(){
+  var data = $(this).data('sk-val')
+  $(this).find('.bar').css('width', `0%`)
+  $(this).find('.sk-count').text('0%')
+  $(this).find('.sk-count').css('left', '0%')
+})
+$(window).scroll(function(){
+  var skillsOffset = $('#skills').offset().top
+      scrollTop = $(window).scrollTop()
+  if(scrollTop > skillsOffset - '100'){
+    $('.sk-bar').each(function(){
+      var data = $(this).data('sk-val')
+      $(this).find('.bar').css('width', data + `%`)
+      $(this).find('.sk-count').text(data + '%')
+      $(this).find('.sk-count').css('left', data - '5' + '%')
+    })
+  }
+})
 
 
-  // TYping form typeit
-  new TypeIt('h2.job-title span', {
-       strings: ["Developer", "Designer"],
-       speed: 100,
-       deleteSpeed: 80,
-       loop: true,
-       breakLines: false,
-       nextStringDelay: 2000,
-       startDelay: 2000
-  });
+////////////////////////// Check ABOUT_ME section
+// Random Icon in description section in about me
+$('.random-icon i').each(function(){
+  var windowWidth = $(window).width() - 20
+      descriptionHeight = $('#about .description').height()
+      x = Math.floor( (Math.random() * windowWidth) + 20 )
+      y = Math.floor( (Math.random() * descriptionHeight) + 20 )
+  $(this).css({'top': y, 'left': x})
+})
 
+
+////////////////////////// Check PROJECTS section
+$(document).ready(function(){
   // slider => to show previos's products image
   $('.slider').slick({
-    // fade: true;
     autoplay: true
   })
 
@@ -59,60 +113,8 @@ $(document).ready(function(){
     $('.slidersectionbaba slider').css('z-index', '1')
     $('.slider.radwaherbs').css('z-index', '2')
   })
-
 })
 
-
-
-var skillsOffset = $('#skills').offset().top
-
-// Scroll Down Button in home section
-$('.scroll-down').click(function(){
-  var scrollTop = $(window).scrollTop()
-      heightHome = $('#home').outerHeight(true)
-  $('html, body').animate({scrollTop: heightHome}, 700)
-})
-
-$(window).scroll(function(){
-  var scrollTop = $(window).scrollTop()
-      heightNav = $('nav').outerHeight(true)
-      heightHome = $('#home').outerHeight(true)
-      changeColorNav = heightHome - heightNav
-  if(scrollTop >= changeColorNav ){
-    $('nav').css({
-      'background-color': '#fff',
-      'border-bottom': '1px solid #ddd'
-    })
-    $('nav ul li a').css('color', '#2E2E34')
-  }else{
-    $('nav').css({
-      'color': '#fff',
-      'background-color': 'transparent',
-      'border': 'none'
-    })
-    $('nav ul li a').css('color', '#fff')
-  }
-
-  if(scrollTop > skillsOffset - '100'){
-    $('.sk-bar').each(function(){
-      var data = $(this).data('sk-val')
-      $(this).find('.bar').css('width', data + `%`)
-      $(this).find('.sk-count').text(data + '%')
-      $(this).find('.sk-count').css('left', data - '5' + '%')
-    })
-  }
-})
-
-// Random Icon in description section in about me
-$('.random-icon i').each(function(){
-  var windowWidth = $(window).width() - 20
-      descriptionHeight = $('#about .description').height()
-      x = Math.floor( (Math.random() * windowWidth) + 20 )
-      y = Math.floor( (Math.random() * descriptionHeight) + 20 )
-  // console.log('y: ' + y + ', ' + 'x: ' + x);
-  // console.log(windowWidth);
-  $(this).css({'top': y, 'left': x})
-})
 
 
 // CODE SOURCE: https://codepen.io/joxmar/pen/NqqMEg?editors=1010
@@ -173,16 +175,6 @@ $(window).scroll(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
 // Sending new Message from Contact Form
 function _(id){ return document.getElementById(id); }
 function submitForm(){
@@ -210,5 +202,5 @@ function submitForm(){
       }
     }
   }
-  ajax.send( formdata );
+  // ajax.send( formdata );
 }

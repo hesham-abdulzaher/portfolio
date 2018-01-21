@@ -101,22 +101,22 @@ nav {
   z-index: 9;
   transition: all 0.5s ease;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
-  .menu-bar.toggle-translatex-menu {
+  .menu-bar.toggle-translatex {
     transform: translateX(75vw); }
-    .menu-bar.toggle-translatex-menu .bars .ion-ios-more {
+    .menu-bar.toggle-translatex .bars .dots {
       display: none; }
-    .menu-bar.toggle-translatex-menu .bars .ion-close-round {
-      display: block;
-      font-size: 26px; }
+    .menu-bar.toggle-translatex .bars .close {
+      display: block; }
   .menu-bar .bars {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
     .menu-bar .bars i {
-      font-size: 40px;
+      font-size: 35px;
+      font-weight: 100;
       color: white; }
-      .menu-bar .bars i.ion-close-round {
+      .menu-bar .bars i.close {
         display: none; }
 
 .mob-nav-list {
@@ -295,6 +295,19 @@ body {
       min-height: 100%;
       z-index: 1;
       filter: blur(7px) grayscale(100%); }
+  #home .bg-phone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    background-image: url("../images/avatar1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: none; }
   #home .content {
     position: absolute;
     top: 50%;
@@ -451,7 +464,7 @@ body {
     margin: 60px 0 0;
     text-align: center;
     position: relative; }
-    #about .description i.ion-quote {
+    #about .description i.fa-quote-left {
       margin: 15px auto;
       display: block;
       font-size: 22px; }
@@ -709,6 +722,7 @@ body {
     #projects .card .project-title {
       position: relative;
       width: fit-content;
+      max-width: 60%;
       transform: skewX(40deg);
       background-color: #026467; }
       #projects .card .project-title::after, #projects .card .project-title::before {
@@ -780,8 +794,8 @@ body {
       #projects .slidersectionbaba .close:hover {
         color: black; }
     #projects .slidersectionbaba .slider {
-      width: 80%;
-      height: 80%;
+      width: 79%;
+      height: 75%;
       border: 1px solid #2E2E34;
       box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
       position: absolute;
@@ -856,7 +870,7 @@ body {
         padding: 12px 45px; }
       #contact .form button i {
         margin-left: 15px; }
-    #contact .form .contact-loading, #contact .form .sended {
+    #contact .form .contact-loading, #contact .form #sent {
       width: fit-content;
       padding: 10px 20px;
       display: none;
@@ -865,17 +879,17 @@ body {
       right: 10%;
       font-family: "Open Sans", sans-serif;
       font-size: 18px; }
-      #contact .form .contact-loading.sended, #contact .form .sended.sended {
+      #contact .form .contact-loading#sent, #contact .form #sent#sent {
         color: #999; }
-        #contact .form .contact-loading.sended i, #contact .form .sended.sended i {
+        #contact .form .contact-loading#sent i, #contact .form #sent#sent i {
           color: green;
           margin-left: 10px;
           font-size: 25px; }
-      #contact .form .contact-loading div, #contact .form .sended div {
+      #contact .form .contact-loading div, #contact .form #sent div {
         margin: 0 10px 0 20px;
         display: inline-block;
         color: #999; }
-      #contact .form .contact-loading span, #contact .form .sended span {
+      #contact .form .contact-loading span, #contact .form #sent span {
         width: 8px;
         height: 8px;
         border-radius: 3px;
@@ -884,9 +898,9 @@ body {
         margin-left: 3px;
         transform: scale(0);
         animation: sending 0.8s ease-in-out forwards infinite; }
-        #contact .form .contact-loading span:nth-of-type(2), #contact .form .sended span:nth-of-type(2) {
+        #contact .form .contact-loading span:nth-of-type(2), #contact .form #sent span:nth-of-type(2) {
           animation-delay: 0.1s; }
-        #contact .form .contact-loading span:last-of-type, #contact .form .sended span:last-of-type {
+        #contact .form .contact-loading span:last-of-type, #contact .form #sent span:last-of-type {
           animation-delay: 0.2s; }
 @keyframes sending {
   0%, 100% {
@@ -938,11 +952,17 @@ body {
     .section-name::before {
       left: 80%; }
 
+  #home .bg-phone {
+    display: block; }
+  #home .content .avatar {
+    opacity: 0; }
   #home .content h1 {
     font-size: 26px;
     text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000; }
   #home .content h2.job-title {
-    font-size: 28px; }
+    color: white;
+    font-size: 28px;
+    font-weight: 400; }
 
   #about .content-about .img-about {
     display: none; }
@@ -1025,9 +1045,9 @@ body {
       right: -30px;
       left: auto; }
 
-  #contact form {
+  #contact .form {
     width: 90%; }
-    #contact form input, #contact form textarea {
+    #contact .form input, #contact .form textarea {
       width: 100% !important;
       margin-right: 0 !important; } }
 @media screen and (min-width: 480px) and (max-width: 768px) {
@@ -1040,6 +1060,17 @@ body {
   .mob-nav-list {
     display: block; }
 
+  #home .bg-phone {
+    display: block; }
+  #home .content .avatar {
+    opacity: 0; }
+  #home .content h1 {
+    font-size: 30px; }
+  #home .content h2.job-title {
+    text-shadow: 1px 1px #000, 2px 2px #000, 3px 3px #000, 4px 4px #000;
+    color: white;
+    font-size: 28px;
+    font-weight: 400; }
   #home i.scroll-down {
     margin-top: 120px; }
 
@@ -1073,7 +1104,7 @@ body {
   #projects .slidersectionbaba .slider {
     height: 28%; }
 
-  #contact form {
+  #contact .form {
     width: 80%; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -107,23 +107,23 @@ nav
   z-index: 9
   transition: all .5s ease
   box-shadow: $shadow
-  &.toggle-translatex-menu
+  &.toggle-translatex
     transform: translateX(75vw)
     .bars
-      .ion-ios-more
+      .dots
         display: none
-      .ion-close-round
+      .close
         display: block
-        font-size: 26px
   .bars
     position: absolute
     top: 50%
     left: 50%
     transform: translate(-50%, -50%)
     i
-      font-size: 40px
+      font-size: 35px
+      font-weight: 100
       color: white
-      &.ion-close-round
+      &.close
         display: none
 .mob-nav-list
   display: none
