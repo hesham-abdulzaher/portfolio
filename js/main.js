@@ -164,51 +164,36 @@ $(window).scroll(function(){
 
 
 
+$('#contact-form').on('submit', function (e) {
+    if (!e.isDefaultPrevented()) {
 
+        // 
+        // 
+        // Start Animation
+        // 
+        // 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Sending new Message from Contact Form
-function _(id){ return document.getElementById(id); }
-function submitForm(){
-  _("mybtn").disabled = true;
-  _("sending").style.display = 'block';
-
-  var formdata = new FormData();
-  formdata.append( "n", _("n").value );
-  formdata.append( "p", _("p").value );
-  formdata.append( "e", _("e").value );
-  formdata.append( "m", _("m").value );
-  var ajax = new XMLHttpRequest();
-  ajax.open( "POST", "mail.php" );
-  ajax.onreadystatechange = function() {
-    if(ajax.readyState == 4 && ajax.status == 200) {
-      if(ajax.responseText == "success"){
-        _("sending").style.display = 'none';
-        _("sent").sytle.display = 'block';
-      } else {
-        console.log(ajax.responseText)
-        _("sending").style.display = 'none';
-        _("sent").style.display = 'block';
-        _("sent").innerHTML = ajax.responseText;
-        _("mybtn").disabled = false;
-      }
+        var url = "contact.php";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: $(this).serialize(),
+            success: function (data){
+                
+              var messageText = data.message; // this var will recive some text from the backend, please show this text from the user
+              
+              // 
+              // 
+              // End Animation
+              // 
+              //
+              
+              // Reset Form, DON'T DELETE THIS
+              $('#contact-form')[0].reset();
+              grecaptcha.reset();
+                
+            }
+        });
+        return false;
     }
-  }
-  ajax.send( formdata );
-}
+})

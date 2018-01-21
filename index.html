@@ -334,12 +334,27 @@
   <!-- Contact -->
   <section id="contact">
     <div class="section-name">Contact Me</div>
-    <div class="form">
-      <input class="name" type="text" placeholder="Name" id="n">
-      <input class="phone" type="text" placeholder="Phone" id="p">
-      <input class="email" type="text" placeholder="E-mail" id="e">
-      <textarea rows="6" cols="70" placeholder="Comment" id="m"></textarea>
-      <button id="mybtn" onclick="submitForm()">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    <form id="contact-form" method="post" action="contact.php" role="form" class="form">
+      
+      <input class="name" name="name" type="text" placeholder="Name" id="n">
+      <input class="phone" name="phone" type="text" placeholder="Phone" id="p">
+      <input class="email" name="email" type="text" placeholder="E-mail" id="e">
+      <textarea rows="6" cols="70" name="message" placeholder="Comment" id="m"></textarea>
+      <style>
+        /* Put this code in your css file */
+        .g-recaptcha > div{
+          margin: auto;
+          margin-bottom: 20px;
+        }
+      </style>
+      <!-- DON'T DELETE THIS DIV -->
+      <div style="width: 100%;">
+        <div class="g-recaptcha" data-sitekey="6LdwyUEUAAAAAPoDze9v-nAPi21arkwwBdRcjT5n"></div>
+      </div>
+      <!-- DON'T DELETE THIS DIV -->
+
+
+      <button id="mybtn" type="submit">Send <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
       <div class="contact-loading" id="sending">
         <div>Sending</div>
         <span></span>
@@ -347,7 +362,7 @@
         <span></span>
       </div>
       <div class="sended" id="sent">Sent<i class="ion-checkmark-round"></i></div>
-    </div>
+    </form>
     <!-- Copyright -->
     <div class="copyright">
       <span><a href="https://www.facebook.com/hesham.abdulzaher">Hesham</a>&copy; 2018</span>
@@ -360,6 +375,7 @@
   <script src="js/jquery.js"></script>
   <script type="text/javascript" src="slick/slick.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/5.3.0/typeit.min.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <script src="js/main.js"></script>
 </body>
 </html>
